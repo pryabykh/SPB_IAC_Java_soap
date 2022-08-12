@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="57860655-3029-404e-9925-67a0825273bc" activeEnvironment="Default" name="equationWsdl.wsdl" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8c0faa24-c2ab-4530-8c12-887d81b0d5f6" wsaVersion="NONE" name="EquationDetailsPortSoap11" type="wsdl" bindingName="{http://pryabykh.com/xml/equation}EquationDetailsPortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/pryab/Desktop/Projects/SPB_IAC_Java_soap/equationWsdl.wsdl.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\pryab\Desktop\Projects\SPB_IAC_Java_soap\equationWsdl.wsdl.xml"><con:part><con:url>file:\C:\Users\pryab\Desktop\Projects\SPB_IAC_Java_soap\equationWsdl.wsdl.xml</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://pryabykh.com/xml/equation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://pryabykh.com/xml/equation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://pryabykh.com/xml/equation">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://pryabykh.com/xml/equation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="QuadraticEquationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="a" type="xs:int"/>
+            <xs:element name="b" type="xs:int"/>
+            <xs:element name="c" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="QuadraticEquationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="formula" type="xs:string"/>
+            <xs:element name="D" type="xs:int"/>
+            <xs:element name="x1" type="xs:int"/>
+            <xs:element name="x2" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="QuadraticEquationRequest">
+    <wsdl:part element="tns:QuadraticEquationRequest" name="QuadraticEquationRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="QuadraticEquationResponse">
+    <wsdl:part element="tns:QuadraticEquationResponse" name="QuadraticEquationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EquationDetailsPort">
+    <wsdl:operation name="QuadraticEquation">
+      <wsdl:input message="tns:QuadraticEquationRequest" name="QuadraticEquationRequest"></wsdl:input>
+      <wsdl:output message="tns:QuadraticEquationResponse" name="QuadraticEquationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EquationDetailsPortSoap11" type="tns:EquationDetailsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="QuadraticEquation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="QuadraticEquationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="QuadraticEquationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EquationDetailsPortService">
+    <wsdl:port binding="tns:EquationDetailsPortSoap11" name="EquationDetailsPortSoap11">
+      <soap:address location="http://localhost:8080/service/equation"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/service/equation</con:endpoint></con:endpoints><con:operation id="067e1f27-207a-4832-ab99-1d92cfd5ba84" isOneWay="false" action="" name="QuadraticEquation" bindingOperationName="QuadraticEquation" type="Request-Response" outputName="QuadraticEquationResponse" inputName="QuadraticEquationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ad840ab3-99a9-4483-822a-fd8b1846bb7f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/equation</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:equ="http://pryabykh.com/xml/equation">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <equ:QuadraticEquationRequest>\r
+         <equ:a>9</equ:a>\r
+         <equ:b>-6</equ:b>\r
+         <equ:c>2</equ:c>\r
+      </equ:QuadraticEquationRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pryabykh.com/xml/equation/EquationDetailsPort/QuadraticEquationRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
