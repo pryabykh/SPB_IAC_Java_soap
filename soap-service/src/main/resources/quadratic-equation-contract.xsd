@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pryabykh.com/xml/equation"
+           targetNamespace="http://pryabykh.com/xml/equation" elementFormDefault="qualified">
+
+    <xs:element name="QuadraticEquationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="a" type="xs:int"/>
+                <xs:element name="b" type="xs:int"/>
+                <xs:element name="c" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="QuadraticEquationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="formula" type="xs:string"/>
+                <xs:element name="D" type="xs:int"/>
+                <xs:element name="x1" type="xs:int"/>
+                <xs:element name="x2" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
