@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  web:
+    networks:
+      - app-network
+    build: ./web-service
+    depends_on:
+      - soap
+    environment:
+      - SOAP_SERVICE_HOST=http://soap:8080
+    container_name: web-service
+    ports:
+      - "8081:8081"
+  soap:
+    networks:
+      - app-network
+    build: ./soap-service
+    container_name: soap-service
+    ports:
+      - "8080:8080"
+networks:
+  app-network:
+    driver: bridge
