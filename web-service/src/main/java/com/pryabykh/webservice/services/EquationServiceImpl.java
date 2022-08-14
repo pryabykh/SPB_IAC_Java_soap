@@ -4,11 +4,14 @@ import com.pryabykh.webservice.dtos.SolutionDto;
 import com.pryabykh.webservice.schemas.equation.QuadraticEquationRequest;
 import com.pryabykh.webservice.schemas.equation.QuadraticEquationResponse;
 import com.pryabykh.webservice.soapclient.SOAPConnector;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EquationServiceImpl implements EquationService {
     private final SOAPConnector soapConnector;
+    @Value("${soap.service.host}")
+    private String soapServiceHost;
 
     public EquationServiceImpl(SOAPConnector soapConnector) {
         this.soapConnector = soapConnector;
@@ -22,7 +25,7 @@ public class EquationServiceImpl implements EquationService {
         request.setC(c);
 
         QuadraticEquationResponse response = (QuadraticEquationResponse) soapConnector.callWebService(
-                "http://localhost:8080/service/equation",
+                soapServiceHost + "/service/equation",
                 request
         );
 
